@@ -1,9 +1,11 @@
 {
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": "explicit"
     },
 
     "eslint.workingDirectories": ["./client", "./server"],
+    "prettier.tabWidth": 4,
+    "editor.tabSize": 4,
 
     // Show Git folder
     "files.exclude": {

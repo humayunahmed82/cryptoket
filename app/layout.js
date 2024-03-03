@@ -3,6 +3,10 @@ import { Poppins } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
+// coustom Compoenents
+import Navbar from "@/components/navbar/page";
+import Footer from "@/components/footer/page";
+
 const poppins = Poppins({
     subsets: ["latin"],
     display: "swap",
@@ -16,14 +20,17 @@ export const metadata = {
 };
 
 const RootLayout = ({ children }) => (
-    <html lang="en">
-        <body className={`${poppins.variable} font-poppins`}>
-            <Providers defaultTheme="system" enableSystem>
-                <main className="">
-                    <h1>Header</h1>
-                    {children}
-                    <h1>Footer</h1>
-                </main>
+    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+        <body
+            className={`${poppins.variable} font-poppins`}
+            suppressHydrationWarning
+        >
+            <Providers attribute="class" defaultTheme="system" enableSystem>
+                <div className="dark:bg-nft-dark bg-white min-h-screen">
+                    <Navbar />
+                    <main>{children}</main>
+                    <Footer />
+                </div>
             </Providers>
         </body>
     </html>
